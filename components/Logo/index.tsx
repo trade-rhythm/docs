@@ -2,7 +2,7 @@ import { Flex, Box, Icon, HTMLChakraProps } from "@chakra-ui/react";
 import * as React from "react";
 
 const Logo = ({ w, h, ...props }: HTMLChakraProps<"div">) => (
-    <Flex align="center" {...props}>
+    <Flex as="a" align="center" {...props} href="https://www.traderhythm.io">
         <Box display="inline-block" w={w} h={h} marginEnd="3">
             <Icon
                 h="100%"
