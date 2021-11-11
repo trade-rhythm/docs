@@ -6,25 +6,25 @@ name: Getting started
 
 Trade Rhythm is an algo trading platform that enables investors to easily manage their automated investing strategies without needing an advanced team of software engineers.
 
-To access Trade Rhythm, visit [traderhythm.io](https://www.traderhythm.io) on your browser and sign in.
+To access Trade Rhythm, visit [TradeRhythm.io](https://www.traderhythm.io) on your browser and sign in.
 
 Here are the basic steps to get up and running with Trade Rhythm:
 
-## 1. Link
+## 1. Link Providers
 
 Once you've logged into Trade Rythm, the next thing you should do is link your Trade Rhythm "Workspace" to your broker and data providers. You can do this by clicking the "Providers" link in the top navigaton bar and then click the "+ Provider" button.
 
 Currently, we support the following providers (including their paper trading alternatives):
 
-- [Alpaca](https://alpaca.markets)
-- [Coinbase PRO](https://pro.coinbase.com)
-- [Polygon](https://polygon.io)
+-   [Alpaca](https://alpaca.markets)
+-   [Coinbase PRO](https://pro.coinbase.com)
+-   [Polygon](https://polygon.io)
 
-> We expect this list to continue to grow over time so check back often.
+> **NOTE:** We expect this list to continue to grow over time so check back often.
 
 ## 2. Research
 
-Now that you've linked your broker and data provider, you can navigate to the "Research" page in the top navbar to use our various tools to gather insights for your latest strategies.
+Now that you've linked your broker and data provider, you can navigate to the "Research" page in the top navbar to use our various tools to gather insights for all your strategies.
 
 ## 3. Create
 
@@ -34,21 +34,144 @@ When creating a strategy, you can give it a name and description as well as sele
 
 Currently we support the following programming languages:
 
-- JavaScript
-- TypeScript
-- No Code
+-   JavaScript
+-   TypeScript
+-   No Code
 
-> We expect this list to continue to grow over time so check back often.
+> **NOTE:** We expect this list to continue to grow over time so check back often.
+
+### No Code
+
+To create a strategy using the "No Code" editor, you enter in your "enter" and "exit" conditions using any of our predefined technical indicators as well as (optionally) configure a profit target and stop loss.
+
+### TypeScript / JavaScript
+
+To write your strategy using code, you must implement a two event handlers: `"init"` and `"tick"`.
+
+We do not allow arbitrary javascript modules to be loaded but we do provide a standard library that you can use if you wish. It contains many useful tools (like how to access your broker and data provider) as well as all of our technical indicators. This standard library can be accessed at `https://traderhythm.io/std/v1/mod.js`;
+> **NOTE:** The runtime used to execute this code is **not** Node.js so some Node.js specific items will not work.
+
+#### INIT Event
+
+The "init" event handler is called once per implementation and its primary purpose is to setup any "state", including technical indicators, that might be used during the subsequent "TICK" events.
+
+```js
+import {
+    storage,
+    EMA,
+    Cross,
+    dataProvider,
+    brokerProvider,
+    OrderType,
+    Side,
+    OrderClass,
+    TimeInForce,
+} from "https://traderhythm.io/std/v1/mod.js";
+
+// called once when implementation is created
+addEventListener("init", async () => {
+    const fastMA = new EMA(34);
+    const slowMA = new EMA(200);
+    const crossover = new Cross();
+    const crossunder = new Cross();
+
+    const bars = await dataProvider.getBarsBack("1Hour", 200);
+    bars.forEach((bar, idx) => {
+        slowMA.next(bar.c);
+        if (idx > 200 - 34) {
+            fastMA.next(bar.c);
+            crossover.over(bar.c, fastMA.current);
+            crossunder.under(bar.c, fastMA.current);
+        }
+    });
+
+    storage.merge({
+        fastMA,
+        slowMA,
+        crossover,
+        crossunder,
+    });
+});
+```
+
+#### TICK Event
+
+The "tick" event handler is called on every "tick" or time period interval for that specific implemnation. In this event you will likely check if your entry criteria are met and submit an order if so.
+
+
+```js
+import {
+    storage,
+    EMA,
+    Cross,
+    dataProvider,
+    brokerProvider,
+    OrderType,
+    Side,
+    OrderClass,
+    TimeInForce,
+} from "https://traderhythm.io/std/v1/mod.js";
+
+addEventListener("tick", async () => {
+  const [fastMA, slowMA, crossover, crossunder] = storage.multiGet(["fastMA", "slowMA", "crossover", "crossunder"]);
+
+  const [trade, positions] = await Promise.all([
+    dataProvider.getLatestTrade(),
+    brokerProvider.getPositions(),
+  ]);
+  const { p: last } = trade;
+
+  // update data
+  fastMA.next(last);
+  slowMA.next(last);
+
+  // crosses
+  const didCrossOver = crossover.over(last, fastMA.current);
+  const didCrossUnder = crossunder.under(last, fastMA.current);
+
+  // short circuit
+  if (positions.length) return;
+  const quantity = Math.floor(10000 / last);
+  // check conditon
+  if (didCrossOver && fastMA.current > slowMA.current) {
+    // should we enter long?
+    await brokerProvider.order({
+      qty: quantity,
+      orderClass: OrderClass.Bracket,
+      side: Side.Buy,
+      type: OrderType.Market,
+      timeInForce: TimeInForce.DAY,
+      takeProfit: { limitPrice: last * 1.05 },
+      stopLoss: { stopPrice: last * 0.98 },
+    });
+  } else if (didCrossUnder && fastMA.current < slowMA.current) {
+    // should we enter short?
+    await brokerProvider.order({
+      qty: quantity,
+      orderClass: OrderClass.Bracket,
+      side: Side.Buy,
+      type: OrderType.Market,
+      timeInForce: TimeInForce.DAY,
+      takeProfit: { limitPrice: last * 0.95 },
+      stopLoss: { stopPrice: last * 1.02 },
+    });
+  }
+});
+```
 
 ## 4. Backtest
 
 Once you have your strategy written, you can backtest it over various time periods to see how it performs. To run a backtest,
-click the "Backtest" tab on the "strategy" page of the strategy you want to backtest.
+click the "Backtest" tab on the "strategy" page of the strategy you want to backtest and then fill out the backtest parameters.
 
 ## 5. Deploy
 
-Once you're confident with your strategy and backtest results, you can deploy your strategy by creating an "Implemenation".
+Once you're confident with your strategy and backtesting results, you can deploy your strategy by creating an "Implemenation".
 
-An "Implemenation" is a version of your strategy running with a specific instrument (like a stock or curency). You can create as many implemnations of your strategy as you want.
+An "Implemenation" is a version of your strategy running with a specific instrument (like a specific stock or curency). You can create as many implemnations of your strategy as you want.
 
-> We highly recommend running your strategy on a "Paper" or "Simulated" account that uses fake money before you start to use your live broker account.
+> **PRO TIP:** We highly recommend running your strategy on a "Paper" or "Simulated" account that uses fake money before you start to use your live broker account.
+
+
+## 6. Collaborate
+If you choose, you may invite other users to your workspace to collaborate on your strategies. Make sure you trust the individuals you invite because they will have the ability to create, edit, and remove strategies from the workspace.

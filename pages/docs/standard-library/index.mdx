@@ -1,0 +1,261 @@
+---
+name: Intro
+---
+
+import { TableOfContents, } from 'dokz'
+
+# Standard Library
+
+We provide a number of technical indicators that you may incorporate into your strategies.
+
+> Our technical indicators are [open soure](https://github.com/trade-rhythm/technical-indicators) and you're welcome to view and contribute to the growing list of items.
+
+## Technical Indicators
+
+-   [ADX](classes/ADX)
+-   [AO](classes/AO)
+-   [ATR](classes/ATR)
+-   [BB](classes/BB)
+-   [CCI](classes/CCI)
+-   [CE](classes/CE)
+-   [Cross](classes/Cross)
+-   [DMI](classes/DMI)
+-   [EMA](classes/EMA)
+-   [ER](classes/ER)
+-   [FAST_STOCH](classes/FAST_STOCH)
+-   [Indicator](classes/Indicator)
+-   [KC](classes/KC)
+-   [MACD](classes/MACD)
+-   [MAD](classes/MAD)
+-   [MAX](classes/MAX)
+-   [MFI](classes/MFI)
+-   [MIN](classes/MIN)
+-   [OBV](classes/OBV)
+-   [PPO](classes/PPO)
+-   [ROC](classes/ROC)
+-   [RSI](classes/RSI)
+-   [SD](classes/SD)
+-   [SLOW_STOCH](classes/SLOW_STOCH)
+-   [SMA](classes/SMA)
+-   [TR](classes/TR)
+-   [Window](classes/Window)
+
+## Enumerations
+
+-   [OrderClass](enums/OrderClass)
+-   [OrderType](enums/OrderType)
+-   [Side](enums/Side)
+-   [TimeInForce](enums/TimeInForce)
+-   [TimeUnit](enums/TimeUnit)
+
+## Interfaces
+
+-   [Close](interfaces/Close)
+-   [High](interfaces/High)
+-   [Low](interfaces/Low)
+-   [Open](interfaces/Open)
+-   [Order](interfaces/Order)
+-   [OrderRequest](interfaces/OrderRequest)
+-   [Position](interfaces/Position)
+-   [Quote](interfaces/Quote)
+-   [Serializable](interfaces/Serializable)
+-   [SerializableStatic](interfaces/SerializableStatic)
+-   [StaticIndicator](interfaces/StaticIndicator)
+-   [StopLoss](interfaces/StopLoss)
+-   [TakeProfit](interfaces/TakeProfit)
+-   [Trade](interfaces/Trade)
+-   [Volume](interfaces/Volume)
+
+## Type aliases
+
+-   [Bar](aliases/Bar.mdx)
+-   [Timeframe](aliases/TimeFrame.mdx)
+
+## Variables
+
+-   [brokerProvider](variables/dataProvider.mdx)
+-   [collection](variables/collection.mdx)
+-   [dataProvider](variables/dataProvider.mdx)
+-   [storage](variables/storage.mdx)
+
+## Functions
+
+### BarWrapper
+
+▸ `Const` **BarWrapper**(`data`): `Object`
+
+#### Parameters
+
+| Name     | Type     |
+| :------- | :------- |
+| `data`   | `Object` |
+| `data.c` | `number` |
+| `data.h` | `number` |
+| `data.l` | `number` |
+| `data.o` | `number` |
+| `data.t` | `number` |
+| `data.v` | `number` |
+
+#### Returns
+
+`Object`
+
+| Name        | Type     |
+| :---------- | :------- |
+| `close`     | `number` |
+| `high`      | `number` |
+| `low`       | `number` |
+| `open`      | `number` |
+| `timestamp` | `Date`   |
+| `volume`    | `number` |
+
+### calcE
+
+▸ `Const` **calcE**(`a`, `b`): `number`
+
+#### Parameters
+
+| Name | Type     |
+| :--- | :------- |
+| `a`  | `number` |
+| `b`  | `number` |
+
+#### Returns
+
+`number`
+
+### eq
+
+▸ `Const` **eq**(`a`, `b`, `E?`): `boolean`
+
+#### Parameters
+
+| Name | Type     |
+| :--- | :------- |
+| `a`  | `number` |
+| `b`  | `number` |
+| `E?` | `number` |
+
+#### Returns
+
+`boolean`
+
+### gt
+
+▸ `Const` **gt**(`a`, `b`, `E?`): `boolean`
+
+#### Parameters
+
+| Name | Type     |
+| :--- | :------- |
+| `a`  | `number` |
+| `b`  | `number` |
+| `E?` | `number` |
+
+#### Returns
+
+`boolean`
+
+### gte
+
+▸ `Const` **gte**(`a`, `b`, `E?`): `boolean`
+
+#### Parameters
+
+| Name | Type     |
+| :--- | :------- |
+| `a`  | `number` |
+| `b`  | `number` |
+| `E?` | `number` |
+
+#### Returns
+
+`boolean`
+
+### lt
+
+▸ `Const` **lt**(`a`, `b`, `E?`): `boolean`
+
+#### Parameters
+
+| Name | Type     |
+| :--- | :------- |
+| `a`  | `number` |
+| `b`  | `number` |
+| `E?` | `number` |
+
+#### Returns
+
+`boolean`
+
+### lte
+
+▸ `Const` **lte**(`a`, `b`, `E?`): `boolean`
+
+#### Parameters
+
+| Name | Type     |
+| :--- | :------- |
+| `a`  | `number` |
+| `b`  | `number` |
+| `E?` | `number` |
+
+#### Returns
+
+`boolean`
+
+### neq
+
+▸ `Const` **neq**(`a`, `b`, `E?`): `boolean`
+
+#### Parameters
+
+| Name | Type     |
+| :--- | :------- |
+| `a`  | `number` |
+| `b`  | `number` |
+| `E?` | `number` |
+
+#### Returns
+
+`boolean`
+
+### parse
+
+▸ `Const` **parse**(`json`): `unknown`
+
+#### Parameters
+
+| Name   | Type     |
+| :----- | :------- |
+| `json` | `string` |
+
+#### Returns
+
+`unknown`
+
+## Example Usage
+
+```js
+import { EMA, Cross, parse } from "https://traderhythm.io/std/v1/mod.js";
+
+// init some indicators
+const ema = new EMA(9);
+const cross = new Cross();
+
+// do something with them
+function handleNewData(bar) {
+    j;
+    const value = ema.next(bar.close); // or ema.nextBar(bar);
+    if (cross.over(value, bar.close)) {
+        // Do something!
+    }
+}
+
+// serialize indicators to JSON
+const state = { ema, cross };
+const json = JSON.stringify(state);
+
+// deserialize
+const newState = parse(json);
+```

@@ -17,7 +17,6 @@ export default function App(props) {
                 />
             </Head>
             <DokzProvider
-                animate
                 headerLogo={<Logo h="10" />}
                 docsRootPath="pages"
                 githubUrl="trade-rhythm/docs"
