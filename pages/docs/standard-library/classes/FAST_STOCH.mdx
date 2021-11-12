@@ -1,0 +1,190 @@
+# Class: FAST_STOCH
+
+## Hierarchy
+
+- [`Indicator`](Indicator)<`FAST_STOCHArgs`\>
+
+  ↳ **`FAST_STOCH`**
+
+https://www.investopedia.com/terms/s/stochasticoscillator.asp
+
+## Constructors
+
+### constructor
+
+• **new FAST_STOCH**(`period?`)
+
+#### Parameters
+
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
+
+## Methods
+
+### next
+
+▸ **next**(`value`): `number`
+
+#### Parameters
+
+| Name    | Type     |
+| :------ | :------- |
+| `value` | `number` |
+
+#### Returns
+
+`number`
+
+___
+
+### nextBar
+
+▸ **nextBar**(`bar`): `number`
+
+#### Parameters
+
+| Name  | Type                                                                                             |
+| :---- | :----------------------------------------------------------------------------------------------- |
+| `bar` | [`High`](../interfaces/High) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
+
+#### Returns
+
+`number`
+
+___
+
+### reset
+
+▸ **reset**(): `void`
+
+#### Returns
+
+`void`
+
+___
+
+### toJSON
+
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`FAST_STOCHArgs`\>
+
+#### Returns
+
+[`JSONDef`](../modules.md#jsondef)<`FAST_STOCHArgs`\>
+
+___
+
+### toString
+
+▸ **toString**(): `string`
+
+#### Returns
+
+`string`
+
+___
+
+### display
+
+▸ `Static` **display**(`__namedParameters`): `string`
+
+#### Parameters
+
+| Name                | Type             |
+| :------------------ | :--------------- |
+| `__namedParameters` | `FAST_STOCHArgs` |
+
+#### Returns
+
+`string`
+
+___
+
+### from
+
+▸ `Static` **from**(`__namedParameters`): [`FAST_STOCH`](FAST_STOCH)
+
+#### Parameters
+
+| Name                | Type             |
+| :------------------ | :--------------- |
+| `__namedParameters` | `FAST_STOCHArgs` |
+
+#### Returns
+
+[`FAST_STOCH`](FAST_STOCH)
+
+___
+
+### init
+
+▸ `Static` **init**<`C`, `P`, `V`\>(`props`, `values`): [`C`, `V`]
+
+#### Type parameters
+
+| Name | Type                                                  |
+| :--- | :---------------------------------------------------- |
+| `C`  | extends [`Indicator`](Indicator)<`P`, `V`, `V`, `C`\> |
+| `P`  | `P`                                                   |
+| `V`  | `number`                                              |
+
+#### Parameters
+
+| Name     | Type       |
+| :------- | :--------- |
+| `props`  | `P`        |
+| `values` | `number`[] |
+
+#### Returns
+
+[`C`, `V`]
+
+#### Inherited from
+
+[Indicator](Indicator).[init](Indicator.md#init)
+
+___
+
+### initBar
+
+▸ `Static` **initBar**<`C`, `P`, `V`, `VB`\>(`props`, `bars`): [`C`, `VB`]
+
+#### Type parameters
+
+| Name | Type                                                   |
+| :--- | :----------------------------------------------------- |
+| `C`  | extends [`Indicator`](Indicator)<`P`, `V`, `VB`, `C`\> |
+| `P`  | `P`                                                    |
+| `V`  | `number`                                               |
+| `VB` | `V`                                                    |
+
+#### Parameters
+
+| Name    | Type                         |
+| :------ | :--------------------------- |
+| `props` | `P`                          |
+| `bars`  | [`Bar`](../modules.md#bar)[] |
+
+#### Returns
+
+[`C`, `VB`]
+
+#### Inherited from
+
+[Indicator](Indicator).[initBar](Indicator.md#initbar)
+
+___
+
+### minBars
+
+▸ `Static` **minBars**(`__namedParameters`): `number`
+
+#### Parameters
+
+| Name                | Type             |
+| :------------------ | :--------------- |
+| `__namedParameters` | `FAST_STOCHArgs` |
+
+#### Returns
+
+`number`

@@ -1,3 +1,139 @@
+---
+name: storage
+---
+
 # storage
 
-• **storage**: `Storage`
+## Methods
+
+### getAll
+
+▸ **getAll**(): `Record`<`string`, `unknown`\>
+
+#### Returns
+
+`Record`<`string`, `unknown`\>
+
+___
+
+
+### getItem
+
+▸ **getItem**<`T`\>(`key`): `T`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+
+#### Returns
+
+`T`
+___
+
+### merge
+
+▸ **merge**(`items`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `items` | `Record`<`string`, `unknown`\> |
+
+#### Returns
+
+`void`
+___
+
+### multiGet
+
+▸ **multiGet**<`T`\>(`keys`): `T`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends readonly `unknown`[]readonly `unknown`[] |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `keys` | `string`[] |
+
+#### Returns
+
+`T`
+
+___
+
+### removeItem
+
+▸ **removeItem**(`key`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+
+#### Returns
+
+`void`
+
+___
+
+### replace
+
+▸ **replace**(`items`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `items` | `Record`<`string`, `unknown`\> |
+
+#### Returns
+
+`void`
+
+___
+
+### setItem
+
+▸ **setItem**<`T`\>(`key`, `value`): `void`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+| `value` | `T` |
+
+#### Returns
+
+`void`
+
+___
+
+### toJSON
+
+▸ **toJSON**(): `string`
+
+#### Returns
+
+`string`

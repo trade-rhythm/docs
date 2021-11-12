@@ -1,40 +1,35 @@
-# Class: EMA
+# Class: ADX
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`EMAArgs`\>
+- [`Indicator`](Indicator.md)<`ADXArgs`\>
 
-  ↳ **`EMA`**
+  ↳ **`ADX`**
+
+https://www.investopedia.com/terms/a/adx.asp
 
 ## Constructors
 
 ### constructor
 
-• **new EMA**(`period`, `k?`, `current?`)
+• **new ADX**(`period?`)
 
 #### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
-| `period`   | `number` |
-| `k?`       | `number` |
-| `current?` | `number` |
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
 
 ## Methods
 
 ### next
 
-▸ **next**(`value`): `number`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `number` |
+▸ **next**(): `number`
 
 #### Returns
 
 `number`
+___
 
 ### nextBar
 
@@ -42,13 +37,14 @@
 
 #### Parameters
 
-| Name  | Type                              |
-| :---- | :-------------------------------- |
-| `bar` | [`Close`](../interfaces/Close.md) |
+| Name  | Type                                                                                                |
+| :---- | :-------------------------------------------------------------------------------------------------- |
+| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
 
 #### Returns
 
 `number`
+___
 
 ### reset
 
@@ -60,11 +56,12 @@
 
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`EMAArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`ADXArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`EMAArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`ADXArgs`\>
+___
 
 ### toString
 
@@ -73,35 +70,37 @@
 #### Returns
 
 `string`
+___
 
 ### display
 
-▸ `Static` **display**(`__namedParameters`, `value?`): `string`
+▸ `Static` **display**(`__namedParameters`): `string`
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `EMAArgs` |
-| `value?`            | `string`  |
+| `__namedParameters` | `ADXArgs` |
 
 #### Returns
 
 `string`
+___
 
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`EMA`](EMA.md)
+▸ `Static` **from**(`__namedParameters`): [`ADX`](ADX.md)
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `EMAArgs` |
+| `__namedParameters` | `ADXArgs` |
 
 #### Returns
 
-[`EMA`](EMA.md)
+[`ADX`](ADX.md)
+___
 
 ### init
 
@@ -125,10 +124,7 @@
 #### Returns
 
 [`C`, `V`]
-
-#### Inherited from
-
-[Indicator](Indicator.md).[init](Indicator.md#init)
+___
 
 ### initBar
 
@@ -153,10 +149,7 @@
 #### Returns
 
 [`C`, `VB`]
-
-#### Inherited from
-
-[Indicator](Indicator.md).[initBar](Indicator.md#initbar)
+___
 
 ### minBars
 
@@ -166,7 +159,7 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `EMAArgs` |
+| `__namedParameters` | `ADXArgs` |
 
 #### Returns
 

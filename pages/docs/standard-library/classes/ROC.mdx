@@ -1,30 +1,30 @@
-# Class: MACD
+# Class: ROC
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`MACDArgs`, `MACDOutput`\>
+- [`Indicator`](Indicator.md)<`ROCArgs`\>
 
-  ↳ **`MACD`**
+  ↳ **`ROC`**
+
+https://www.investopedia.com/terms/p/pricerateofchange.asp
 
 ## Constructors
 
 ### constructor
 
-• **new MACD**(`fast?`, `slow?`, `signal?`)
+• **new ROC**(`period?`)
 
 #### Parameters
 
-| Name      | Type                        |
-| :-------- | :-------------------------- |
-| `fast?`   | `number` \| [`EMA`](EMA.md) |
-| `slow?`   | `number` \| [`EMA`](EMA.md) |
-| `signal?` | `number` \| [`EMA`](EMA.md) |
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
 
 ## Methods
 
 ### next
 
-▸ **next**(`value`): `MACDOutput`
+▸ **next**(`value`): `number`
 
 #### Parameters
 
@@ -34,11 +34,13 @@
 
 #### Returns
 
-`MACDOutput`
+`number`
+
+___
 
 ### nextBar
 
-▸ **nextBar**(`bar`): `MACDOutput`
+▸ **nextBar**(`bar`): `number`
 
 #### Parameters
 
@@ -48,7 +50,9 @@
 
 #### Returns
 
-`MACDOutput`
+`number`
+
+___
 
 ### reset
 
@@ -58,13 +62,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MACDArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`ROCArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`MACDArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`ROCArgs`\>
+
+___
 
 ### toString
 
@@ -74,34 +82,40 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`, `value?`): `string`
 
 #### Parameters
 
-| Name                | Type       |
-| :------------------ | :--------- |
-| `__namedParameters` | `MACDArgs` |
-| `value?`            | `string`   |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `ROCArgs` |
+| `value?`            | `string`  |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`MACD`](MACD.md)
+▸ `Static` **from**(`__namedParameters`): [`ROC`](ROC.md)
 
 #### Parameters
 
-| Name                | Type       |
-| :------------------ | :--------- |
-| `__namedParameters` | `MACDArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `ROCArgs` |
 
 #### Returns
 
-[`MACD`](MACD.md)
+[`ROC`](ROC.md)
+
+___
 
 ### init
 
@@ -129,6 +143,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -158,15 +174,17 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
 
 #### Parameters
 
-| Name                | Type       |
-| :------------------ | :--------- |
-| `__namedParameters` | `MACDArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `ROCArgs` |
 
 #### Returns
 

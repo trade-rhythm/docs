@@ -1,25 +1,24 @@
-# Class: SMA
+# Class: MAD
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`SMAArgs`\>
+- [`Indicator`](Indicator.md)<`MADArgs`\>
 
-  ↳ **`SMA`**
+  ↳ **`MAD`**
+
+https://en.wikipedia.org/wiki/Mean_absolute_deviation
 
 ## Constructors
 
 ### constructor
 
-• **new SMA**(`period`, `window?`, `sum?`, `count?`)
+• **new MAD**(`period?`)
 
 #### Parameters
 
-| Name      | Type                             |
-| :-------- | :------------------------------- |
-| `period`  | `number`                         |
-| `window?` | [`Window`](Window.md)<`number`\> |
-| `sum?`    | `number`                         |
-| `count?`  | `number`                         |
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
 
 ## Methods
 
@@ -37,6 +36,8 @@
 
 `number`
 
+___
+
 ### nextBar
 
 ▸ **nextBar**(`bar`): `number`
@@ -51,6 +52,8 @@
 
 `number`
 
+___
+
 ### reset
 
 ▸ **reset**(): `void`
@@ -59,13 +62,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`SMAArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MADArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`SMAArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`MADArgs`\>
+
+___
 
 ### toString
 
@@ -75,6 +82,8 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`, `value?`): `string`
@@ -83,26 +92,30 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `SMAArgs` |
+| `__namedParameters` | `MADArgs` |
 | `value?`            | `string`  |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`SMA`](SMA.md)
+▸ `Static` **from**(`__namedParameters`): [`MAD`](MAD.md)
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `SMAArgs` |
+| `__namedParameters` | `MADArgs` |
 
 #### Returns
 
-[`SMA`](SMA.md)
+[`MAD`](MAD.md)
+
+___
 
 ### init
 
@@ -130,6 +143,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -159,6 +174,8 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
@@ -167,7 +184,7 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `SMAArgs` |
+| `__namedParameters` | `MADArgs` |
 
 #### Returns
 

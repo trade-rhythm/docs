@@ -10,9 +10,13 @@ To access Trade Rhythm, visit [TradeRhythm.io](https://www.traderhythm.io) on yo
 
 Here are the basic steps to get up and running with Trade Rhythm:
 
-## 1. Link Providers
 
-Once you've logged into Trade Rythm, the next thing you should do is link your Trade Rhythm "Workspace" to your broker and data providers. You can do this by clicking the "Providers" link in the top navigaton bar and then click the "+ Provider" button.
+## 0. Create a workspace
+A workspace in Trade Rhyhtm is a collection of your strategies and service providers that you can (optionally) invite others to join and collaborate with. Likely all the work you do in Trade Rhythm will be done in a workspace.
+
+## 1. Link your Providers
+
+Once you've logged into Trade Rythm, the next thing you should do is link your Trade Rhythm "workspace" to your broker. You can do this by clicking the "Providers" link in the top navigaton bar and then click the "+ Provider" button.
 
 Currently, we support the following providers (including their paper trading alternatives):
 
@@ -24,13 +28,13 @@ Currently, we support the following providers (including their paper trading alt
 
 ## 2. Research
 
-Now that you've linked your broker and data provider, you can navigate to the "Research" page in the top navbar to use our various tools to gather insights for all your strategies.
+Now that you've linked your broker and/or data provider, you can navigate to the "Research" page in the top navbar to use our various tools to gather insights for all your strategies. We embed a version of TradingView's [Charts](https://www.tradingview.com/chart) in our Research page as well as screeners for various markets.
 
 ## 3. Create
 
 When you're ready to create your first strategy, you can navigate to the "Strategies" page in the top navbar and click on "+ Create New" button.
 
-When creating a strategy, you can give it a name and description as well as select which programming language you would like to use. We also offer a "No Code" option that allows you to create a strategy with ZERO programming skills.
+When creating a strategy, you may give it a name and description as well as choose which programming language you would like to use. We also offer a "No Code" option that allows you to create a strategy with ZERO programming skills.
 
 Currently we support the following programming languages:
 
@@ -42,13 +46,14 @@ Currently we support the following programming languages:
 
 ### No Code
 
-To create a strategy using the "No Code" editor, you enter in your "enter" and "exit" conditions using any of our predefined technical indicators as well as (optionally) configure a profit target and stop loss.
+To create a strategy using the "No Code" editor, you simply enter in your "enter" and "exit" conditions using any of our predefined technical indicators as well as (optionally) configure a profit target and stop loss.
 
 ### TypeScript / JavaScript
 
-To write your strategy using code, you must implement a two event handlers: `"init"` and `"tick"`.
+To write your strategy using code, you must implement two event handlers: `"init"` and `"tick"`.
 
-We do not allow arbitrary javascript modules to be loaded but we do provide a standard library that you can use if you wish. It contains many useful tools (like how to access your broker and data provider) as well as all of our technical indicators. This standard library can be accessed at `https://traderhythm.io/std/v1/mod.js`;
+We do not allow arbitrary javascript modules to be loaded but we do provide a standard library of tools that you can use if you wish. It contains many useful tools (like how to access your broker and/or data provider) as well as all of our technical indicators. This standard library can be accessed at `https://traderhythm.io/std/v1/mod.js`;
+
 > **NOTE:** The runtime used to execute this code is **not** Node.js so some Node.js specific items will not work.
 
 #### INIT Event
@@ -70,15 +75,15 @@ import {
 
 // called once when implementation is created
 addEventListener("init", async () => {
-    const fastMA = new EMA(34);
-    const slowMA = new EMA(200);
+    const fastMA = new EMA(50);
+    const slowMA = new EMA(100);
     const crossover = new Cross();
     const crossunder = new Cross();
 
-    const bars = await dataProvider.getBarsBack("1Hour", 200);
+    const bars = await dataProvider.getBarsBack("1Hour", 100);
     bars.forEach((bar, idx) => {
         slowMA.next(bar.c);
-        if (idx > 200 - 34) {
+        if (idx > 100 - 50) {
             fastMA.next(bar.c);
             crossover.over(bar.c, fastMA.current);
             crossunder.under(bar.c, fastMA.current);
@@ -112,6 +117,9 @@ import {
     TimeInForce,
 } from "https://traderhythm.io/std/v1/mod.js";
 
+// init handler would go here
+
+// called on every tick
 addEventListener("tick", async () => {
   const [fastMA, slowMA, crossover, crossunder] = storage.multiGet(["fastMA", "slowMA", "crossover", "crossunder"]);
 
@@ -171,7 +179,6 @@ Once you're confident with your strategy and backtesting results, you can deploy
 An "Implemenation" is a version of your strategy running with a specific instrument (like a specific stock or curency). You can create as many implemnations of your strategy as you want.
 
 > **PRO TIP:** We highly recommend running your strategy on a "Paper" or "Simulated" account that uses fake money before you start to use your live broker account.
-
 
 ## 6. Collaborate
 If you choose, you may invite other users to your workspace to collaborate on your strategies. Make sure you trust the individuals you invite because they will have the ability to create, edit, and remove strategies from the workspace.

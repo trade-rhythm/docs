@@ -1,23 +1,24 @@
-# Class: ATR
+# Class: SD
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`ATRArgs`\>
+- [`Indicator`](Indicator.md)<`SDArgs`\>
 
-  ↳ **`ATR`**
+  ↳ **`SD`**
+
+https://www.investopedia.com/terms/s/standarddeviation.asp
 
 ## Constructors
 
 ### constructor
 
-• **new ATR**(`ema?`, `tr?`)
+• **new SD**(`period?`)
 
 #### Parameters
 
-| Name   | Type                        |
-| :----- | :-------------------------- |
-| `ema?` | `number` \| [`EMA`](EMA.md) |
-| `tr?`  | [`TR`](TR.md)               |
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
 
 ## Methods
 
@@ -35,19 +36,23 @@
 
 `number`
 
+___
+
 ### nextBar
 
 ▸ **nextBar**(`bar`): `number`
 
 #### Parameters
 
-| Name  | Type                                                                                                |
-| :---- | :-------------------------------------------------------------------------------------------------- |
-| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
+| Name  | Type                              |
+| :---- | :-------------------------------- |
+| `bar` | [`Close`](../interfaces/Close.md) |
 
 #### Returns
 
 `number`
+
+___
 
 ### reset
 
@@ -57,13 +62,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`ATRArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`SDArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`ATRArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`SDArgs`\>
+
+___
 
 ### toString
 
@@ -73,33 +82,40 @@
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(`__namedParameters`): `string`
+▸ `Static` **display**(`__namedParameters`, `value?`): `string`
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `ATRArgs` |
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `SDArgs` |
+| `value?`            | `string` |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`ATR`](ATR.md)
+▸ `Static` **from**(`__namedParameters`): [`SD`](SD.md)
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `ATRArgs` |
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `SDArgs` |
 
 #### Returns
 
-[`ATR`](ATR.md)
+[`SD`](SD.md)
+
+___
 
 ### init
 
@@ -127,6 +143,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -156,15 +174,17 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `ATRArgs` |
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `SDArgs` |
 
 #### Returns
 

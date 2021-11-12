@@ -1,3 +1,58 @@
+---
+name: dataProvider
+---
+
 # dataProvider
 
-• **dataProvider**: `DataProvider`
+## Methods
+
+### getBarsBack
+
+▸ **getBarsBack**(`timeframe`, `count`): `Promise`<[`Bar`](../aliases/Bar)[]\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `timeframe` | \`${number}Sec\` \| \`${number}Min\` \| \`${number}Hour\` \| \`${number}Day\` \| \`${number}Week\` \| \`${number}Mon\` |
+| `count` | `number` |
+
+#### Returns
+
+`Promise`<[`Bar`](../modules)[]\>
+
+___
+
+### getLatestBar
+
+▸ **getLatestBar**(`timeframe`): `Promise`<[`Bar`](../aliases/Bar)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `timeframe` | \`${number}Sec\` \| \`${number}Min\` \| \`${number}Hour\` \| \`${number}Day\` \| \`${number}Week\` \| \`${number}Mon\` |
+
+#### Returns
+
+`Promise`<[`Bar`](../modules.md#bar)\>
+
+___
+
+### getLatestQuote
+
+▸ **getLatestQuote**(): `Promise`<[`Quote`](../interfaces/Quote)\>
+
+#### Returns
+
+`Promise`<[`Quote`](../interfaces/Quote)\>
+
+___
+
+### getLatestTrade
+
+▸ **getLatestTrade**(): `Promise`<[`Trade`](../interfaces/Trade)\>
+
+#### Returns
+
+`Promise`<[`Trade`](../interfaces/Trade)\>

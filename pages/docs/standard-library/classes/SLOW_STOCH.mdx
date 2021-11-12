@@ -1,38 +1,43 @@
-# Class: MFI
+# Class: SLOW_STOCH
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`MFIArgs`\>
+- [`Indicator`](Indicator.md)<`SLOW_STOCHArgs`\>
 
-  ↳ **`MFI`**
+  ↳ **`SLOW_STOCH`**
+
+https://www.investopedia.com/terms/s/stochasticoscillator.asp
 
 ## Constructors
 
 ### constructor
 
-• **new MFI**(`period?`, `index?`, `count?`, `prevPrice?`, `totalPositive?`, `totalNegative?`, `queue?`)
+• **new SLOW_STOCH**(`fast?`, `ema?`)
 
 #### Parameters
 
-| Name             | Type     |
-| :--------------- | :------- |
-| `period?`        | `number` |
-| `index?`         | `number` |
-| `count?`         | `number` |
-| `prevPrice?`     | `number` |
-| `totalPositive?` | `number` |
-| `totalNegative?` | `number` |
-| `queue?`         | `any`[]  |
+| Name    | Type                                      |
+| :------ | :---------------------------------------- |
+| `fast?` | `number` \| [`FAST_STOCH`](FAST_STOCH.md) |
+| `ema?`  | `number` \| [`EMA`](EMA.md)               |
 
 ## Methods
 
 ### next
 
-▸ **next**(): `number`
+▸ **next**(`value`): `number`
+
+#### Parameters
+
+| Name    | Type     |
+| :------ | :------- |
+| `value` | `number` |
 
 #### Returns
 
 `number`
+
+___
 
 ### nextBar
 
@@ -40,13 +45,15 @@
 
 #### Parameters
 
-| Name  | Type                                                                                                                                      |
-| :---- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) & [`Volume`](../interfaces/Volume.md) |
+| Name  | Type                                                                                                |
+| :---- | :-------------------------------------------------------------------------------------------------- |
+| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
 
 #### Returns
 
 `number`
+
+___
 
 ### reset
 
@@ -56,13 +63,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MFIArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`SLOW_STOCHArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`MFIArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`SLOW_STOCHArgs`\>
+
+___
 
 ### toString
 
@@ -72,33 +83,39 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`): `string`
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `MFIArgs` |
+| Name                | Type             |
+| :------------------ | :--------------- |
+| `__namedParameters` | `SLOW_STOCHArgs` |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`MFI`](MFI.md)
+▸ `Static` **from**(`__namedParameters`): [`SLOW_STOCH`](SLOW_STOCH.md)
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `MFIArgs` |
+| Name                | Type             |
+| :------------------ | :--------------- |
+| `__namedParameters` | `SLOW_STOCHArgs` |
 
 #### Returns
 
-[`MFI`](MFI.md)
+[`SLOW_STOCH`](SLOW_STOCH.md)
+
+___
 
 ### init
 
@@ -126,6 +143,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -155,15 +174,17 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `MFIArgs` |
+| Name                | Type             |
+| :------------------ | :--------------- |
+| `__namedParameters` | `SLOW_STOCHArgs` |
 
 #### Returns
 

@@ -1,24 +1,24 @@
-# Class: FAST_STOCH
+# Class: RSI
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`FAST_STOCHArgs`\>
+- [`Indicator`](Indicator.md)<`RSIArgs`\>
 
-  ↳ **`FAST_STOCH`**
+  ↳ **`RSI`**
+
+https://www.investopedia.com/terms/r/rsi.asp
 
 ## Constructors
 
 ### constructor
 
-• **new FAST_STOCH**(`period?`, `min?`, `max?`)
+• **new RSI**(`period`)
 
 #### Parameters
 
-| Name      | Type            |
-| :-------- | :-------------- |
-| `period?` | `number`        |
-| `min?`    | [`MIN`](MIN.md) |
-| `max?`    | [`MAX`](MAX.md) |
+| Name     | Type     |
+| :------- | :------- |
+| `period` | `number` |
 
 ## Methods
 
@@ -36,19 +36,23 @@
 
 `number`
 
+___
+
 ### nextBar
 
 ▸ **nextBar**(`bar`): `number`
 
 #### Parameters
 
-| Name  | Type                                                                                                |
-| :---- | :-------------------------------------------------------------------------------------------------- |
-| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
+| Name  | Type                              |
+| :---- | :-------------------------------- |
+| `bar` | [`Close`](../interfaces/Close.md) |
 
 #### Returns
 
 `number`
+
+___
 
 ### reset
 
@@ -58,13 +62,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`FAST_STOCHArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`RSIArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`FAST_STOCHArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`RSIArgs`\>
+
+___
 
 ### toString
 
@@ -74,33 +82,40 @@
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(`__namedParameters`): `string`
+▸ `Static` **display**(`__namedParameters`, `value?`): `string`
 
 #### Parameters
 
-| Name                | Type             |
-| :------------------ | :--------------- |
-| `__namedParameters` | `FAST_STOCHArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `RSIArgs` |
+| `value?`            | `string`  |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`FAST_STOCH`](FAST_STOCH.md)
+▸ `Static` **from**(`__namedParameters`): [`RSI`](RSI.md)
 
 #### Parameters
 
-| Name                | Type             |
-| :------------------ | :--------------- |
-| `__namedParameters` | `FAST_STOCHArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `RSIArgs` |
 
 #### Returns
 
-[`FAST_STOCH`](FAST_STOCH.md)
+[`RSI`](RSI.md)
+
+___
 
 ### init
 
@@ -128,6 +143,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -157,15 +174,17 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
 
 #### Parameters
 
-| Name                | Type             |
-| :------------------ | :--------------- |
-| `__namedParameters` | `FAST_STOCHArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `RSIArgs` |
 
 #### Returns
 

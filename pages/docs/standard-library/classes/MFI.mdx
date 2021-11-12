@@ -1,54 +1,52 @@
-# Class: PPO
+# Class: MFI
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`PPOArgs`, `PPOOut`\>
+- [`Indicator`](Indicator.md)<`MFIArgs`\>
 
-  ↳ **`PPO`**
+  ↳ **`MFI`**
+
+https://www.investopedia.com/terms/m/mfi.asp
 
 ## Constructors
 
 ### constructor
 
-• **new PPO**(`fast?`, `slow?`, `signal?`)
+• **new MFI**(`period?`)
 
 #### Parameters
 
-| Name      | Type                        |
-| :-------- | :-------------------------- |
-| `fast?`   | `number` \| [`EMA`](EMA.md) |
-| `slow?`   | `number` \| [`EMA`](EMA.md) |
-| `signal?` | `number` \| [`EMA`](EMA.md) |
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
 
 ## Methods
 
 ### next
 
-▸ **next**(`value`): `PPOOut`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `number` |
+▸ **next**(): `number`
 
 #### Returns
 
-`PPOOut`
+`number`
+
+___
 
 ### nextBar
 
-▸ **nextBar**(`bar`): `PPOOut`
+▸ **nextBar**(`bar`): `number`
 
 #### Parameters
 
-| Name  | Type                              |
-| :---- | :-------------------------------- |
-| `bar` | [`Close`](../interfaces/Close.md) |
+| Name  | Type                                                                                                                                      |
+| :---- | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) & [`Volume`](../interfaces/Volume.md) |
 
 #### Returns
 
-`PPOOut`
+`number`
+
+___
 
 ### reset
 
@@ -58,21 +56,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`PPOArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MFIArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`PPOArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`MFIArgs`\>
 
-#### Overrides
-
-[Indicator](Indicator.md).[toJSON](Indicator.md#tojson)
-
-#### Defined in
-
-node_modules/@trade-rhythm/technical-indicators/dist/PPO/index.d.ts:22
+___
 
 ### toString
 
@@ -82,34 +76,39 @@ node_modules/@trade-rhythm/technical-indicators/dist/PPO/index.d.ts:22
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(`__namedParameters`, `value?`): `string`
+▸ `Static` **display**(`__namedParameters`): `string`
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `PPOArgs` |
-| `value?`            | `string`  |
+| `__namedParameters` | `MFIArgs` |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`PPO`](PPO.md)
+▸ `Static` **from**(`__namedParameters`): [`MFI`](MFI.md)
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `PPOArgs` |
+| `__namedParameters` | `MFIArgs` |
 
 #### Returns
 
-[`PPO`](PPO.md)
+[`MFI`](MFI.md)
+
+___
 
 ### init
 
@@ -137,6 +136,8 @@ node_modules/@trade-rhythm/technical-indicators/dist/PPO/index.d.ts:22
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -166,6 +167,8 @@ node_modules/@trade-rhythm/technical-indicators/dist/PPO/index.d.ts:22
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
@@ -174,7 +177,7 @@ node_modules/@trade-rhythm/technical-indicators/dist/PPO/index.d.ts:22
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `PPOArgs` |
+| `__namedParameters` | `MFIArgs` |
 
 #### Returns
 

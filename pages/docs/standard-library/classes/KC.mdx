@@ -1,39 +1,30 @@
-# Class: MAX
+# Class: KC
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`MAXArgs`\>
+- [`Indicator`](Indicator.md)<`KCArgs`, `KCOutput`\>
+  ↳ **`KC`**
 
-  ↳ **`MAX`**
+https://www.investopedia.com/terms/k/keltnerchannel.asp
 
 ## Constructors
 
 ### constructor
 
-• **new MAX**(`period?`, `maxIdx?`, `curIdx?`, `queue?`)
+• **new KC**(`period?`, `multiplier?`)
 
 #### Parameters
 
-| Name      | Type     |
-| :-------- | :------- |
-| `period?` | `number` |
-| `maxIdx?` | `number` |
-| `curIdx?` | `number` |
-| `queue?`  | `any`[]  |
+| Name          | Type     |
+| :------------ | :------- |
+| `period?`     | `number` |
+| `multiplier?` | `number` |
 
 ## Methods
 
-### findMaxIdx
-
-▸ **findMaxIdx**(): `number`
-
-#### Returns
-
-`number`
-
 ### next
 
-▸ **next**(`value`): `number`
+▸ **next**(`value`): `KCOutput`
 
 #### Parameters
 
@@ -43,21 +34,25 @@
 
 #### Returns
 
-`number`
+`KCOutput`
+
+___
 
 ### nextBar
 
-▸ **nextBar**(`bar`): `number`
+▸ **nextBar**(`bar`): `KCOutput`
 
 #### Parameters
 
-| Name  | Type                            |
-| :---- | :------------------------------ |
-| `bar` | [`High`](../interfaces/High.md) |
+| Name  | Type                                                                                                |
+| :---- | :-------------------------------------------------------------------------------------------------- |
+| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
 
 #### Returns
 
-`number`
+`KCOutput`
+
+___
 
 ### reset
 
@@ -67,13 +62,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MAXArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`KCArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`MAXArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`KCArgs`\>
+
+___
 
 ### toString
 
@@ -83,34 +82,39 @@
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(`__namedParameters`, `value?`): `string`
+▸ `Static` **display**(`__namedParameters`): `string`
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `MAXArgs` |
-| `value?`            | `string`  |
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `KCArgs` |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`MAX`](MAX.md)
+▸ `Static` **from**(`__namedParameters`): [`KC`](KC.md)
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `MAXArgs` |
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `KCArgs` |
 
 #### Returns
 
-[`MAX`](MAX.md)
+[`KC`](KC.md)
+
+___
 
 ### init
 
@@ -138,6 +142,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -167,15 +173,17 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `MAXArgs` |
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `KCArgs` |
 
 #### Returns
 

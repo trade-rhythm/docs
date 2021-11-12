@@ -1,30 +1,32 @@
-# Class: KC
+# Class: MACD
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`KCArgs`, `KCOutput`\>
-  ↳ **`KC`**
+- [`Indicator`](Indicator.md)<`MACDArgs`, `MACDOutput`\>
+
+  ↳ **`MACD`**
+
+https://www.investopedia.com/terms/m/macd.asp
 
 ## Constructors
 
 ### constructor
 
-• **new KC**(`period?`, `multiplier?`, `atr?`, `ema?`)
+• **new MACD**(`fast?`, `slow?`, `signal?`)
 
 #### Parameters
 
-| Name          | Type            |
-| :------------ | :-------------- |
-| `period?`     | `number`        |
-| `multiplier?` | `number`        |
-| `atr?`        | [`ATR`](ATR.md) |
-| `ema?`        | [`EMA`](EMA.md) |
+| Name      | Type                        |
+| :-------- | :-------------------------- |
+| `fast?`   | `number` \| [`EMA`](EMA.md) |
+| `slow?`   | `number` \| [`EMA`](EMA.md) |
+| `signal?` | `number` \| [`EMA`](EMA.md) |
 
 ## Methods
 
 ### next
 
-▸ **next**(`value`): `KCOutput`
+▸ **next**(`value`): `MACDOutput`
 
 #### Parameters
 
@@ -34,21 +36,25 @@
 
 #### Returns
 
-`KCOutput`
+`MACDOutput`
+
+___
 
 ### nextBar
 
-▸ **nextBar**(`bar`): `KCOutput`
+▸ **nextBar**(`bar`): `MACDOutput`
 
 #### Parameters
 
-| Name  | Type                                                                                                |
-| :---- | :-------------------------------------------------------------------------------------------------- |
-| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
+| Name  | Type                              |
+| :---- | :-------------------------------- |
+| `bar` | [`Close`](../interfaces/Close.md) |
 
 #### Returns
 
-`KCOutput`
+`MACDOutput`
+
+___
 
 ### reset
 
@@ -58,13 +64,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`KCArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MACDArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`KCArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`MACDArgs`\>
+
+___
 
 ### toString
 
@@ -74,33 +84,40 @@
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(`__namedParameters`): `string`
+▸ `Static` **display**(`__namedParameters`, `value?`): `string`
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `KCArgs` |
+| Name                | Type       |
+| :------------------ | :--------- |
+| `__namedParameters` | `MACDArgs` |
+| `value?`            | `string`   |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`KC`](KC.md)
+▸ `Static` **from**(`__namedParameters`): [`MACD`](MACD.md)
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `KCArgs` |
+| Name                | Type       |
+| :------------------ | :--------- |
+| `__namedParameters` | `MACDArgs` |
 
 #### Returns
 
-[`KC`](KC.md)
+[`MACD`](MACD.md)
+
+___
 
 ### init
 
@@ -128,6 +145,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -157,15 +176,17 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `KCArgs` |
+| Name                | Type       |
+| :------------------ | :--------- |
+| `__namedParameters` | `MACDArgs` |
 
 #### Returns
 

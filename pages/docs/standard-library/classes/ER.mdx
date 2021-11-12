@@ -1,32 +1,30 @@
-# Class: CE
+# Class: ER
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`CEArgs`, `Chandelier`\>
+- [`Indicator`](Indicator.md)<`ERArgs`\>
 
-  ↳ **`CE`**
+  ↳ **`ER`**
+
+https://www.investopedia.com/terms/e/efficiencyratio.asp
 
 ## Constructors
 
 ### constructor
 
-• **new CE**(`period?`, `multiplier?`, `atr?`, `min?`, `max?`)
+• **new ER**(`period?`)
 
 #### Parameters
 
-| Name          | Type            |
-| :------------ | :-------------- |
-| `period?`     | `number`        |
-| `multiplier?` | `number`        |
-| `atr?`        | [`ATR`](ATR.md) |
-| `min?`        | [`MIN`](MIN.md) |
-| `max?`        | [`MAX`](MAX.md) |
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
 
 ## Methods
 
 ### next
 
-▸ **next**(`value`): `Chandelier`
+▸ **next**(`value`): `number`
 
 #### Parameters
 
@@ -36,21 +34,25 @@
 
 #### Returns
 
-`Chandelier`
+`number`
+
+___
 
 ### nextBar
 
-▸ **nextBar**(`bar`): `Chandelier`
+▸ **nextBar**(`bar`): `number`
 
 #### Parameters
 
-| Name  | Type                                                                                                |
-| :---- | :-------------------------------------------------------------------------------------------------- |
-| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
+| Name  | Type                              |
+| :---- | :-------------------------------- |
+| `bar` | [`Close`](../interfaces/Close.md) |
 
 #### Returns
 
-`Chandelier`
+`number`
+
+___
 
 ### reset
 
@@ -60,13 +62,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`CEArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`ERArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`CEArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`ERArgs`\>
+
+___
 
 ### toString
 
@@ -76,33 +82,40 @@
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(`__namedParameters`): `string`
+▸ `Static` **display**(`__namedParameters`, `value?`): `string`
 
 #### Parameters
 
 | Name                | Type     |
 | :------------------ | :------- |
-| `__namedParameters` | `CEArgs` |
+| `__namedParameters` | `ERArgs` |
+| `value?`            | `string` |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`CE`](CE.md)
+▸ `Static` **from**(`__namedParameters`): [`ER`](ER.md)
 
 #### Parameters
 
 | Name                | Type     |
 | :------------------ | :------- |
-| `__namedParameters` | `CEArgs` |
+| `__namedParameters` | `ERArgs` |
 
 #### Returns
 
-[`CE`](CE.md)
+[`ER`](ER.md)
+
+___
 
 ### init
 
@@ -130,6 +143,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -159,6 +174,8 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
@@ -167,7 +184,7 @@
 
 | Name                | Type     |
 | :------------------ | :------- |
-| `__namedParameters` | `CEArgs` |
+| `__namedParameters` | `ERArgs` |
 
 #### Returns
 

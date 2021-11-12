@@ -1,67 +1,42 @@
-# Class: DMI
+# Class: ATR
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`DMIArgs`\>
+- [`Indicator`](Indicator.md)<`ATRArgs`\>
 
-  ↳ **`DMI`**
+  ↳ **`ATR`**
+
+https://www.investopedia.com/terms/a/atr.asp
 
 ## Constructors
 
 ### constructor
 
-• **new DMI**(`period?`, `tr?`, `k?`, `index?`, `atrSum?`, `upSum?`, `downSum?`, `prevBar?`)
+• **new ATR**(`ema?`, `tr?`)
 
 #### Parameters
 
-| Name       | Type                                                                                                |
-| :--------- | :-------------------------------------------------------------------------------------------------- |
-| `period?`  | `number`                                                                                            |
-| `tr?`      | [`TR`](TR.md)                                                                                       |
-| `k?`       | `number`                                                                                            |
-| `index?`   | `number`                                                                                            |
-| `atrSum?`  | `number`                                                                                            |
-| `upSum?`   | `number`                                                                                            |
-| `downSum?` | `number`                                                                                            |
-| `prevBar?` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
+| Name   | Type                        |
+| :----- | :-------------------------- |
+| `ema?` | `number` \| [`EMA`](EMA.md) |
 
 ## Methods
 
-### display
+### next
 
-▸ **display**(`value`): `string`
+▸ **next**(`value`): `number`
 
 #### Parameters
 
 | Name    | Type     |
 | :------ | :------- |
-| `value` | `string` |
-
-#### Returns
-
-`string`
-
-### getDirection
-
-▸ **getDirection**(`bar`): [`number`, `number`]
-
-#### Parameters
-
-| Name  | Type                                                                                                |
-| :---- | :-------------------------------------------------------------------------------------------------- |
-| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
-
-#### Returns
-
-[`number`, `number`]
-
-### next
-
-▸ **next**(): `number`
+| `value` | `number` |
 
 #### Returns
 
 `number`
+
+---
 
 ### nextBar
 
@@ -77,6 +52,8 @@
 
 `number`
 
+---
+
 ### reset
 
 ▸ **reset**(): `void`
@@ -85,13 +62,17 @@
 
 `void`
 
+---
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`DMIArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`ATRArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`DMIArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`ATRArgs`\>
+
+---
 
 ### toString
 
@@ -101,6 +82,8 @@
 
 `string`
 
+---
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`): `string`
@@ -109,25 +92,29 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `DMIArgs` |
+| `__namedParameters` | `ATRArgs` |
 
 #### Returns
 
 `string`
 
+---
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`DMI`](DMI.md)
+▸ `Static` **from**(`__namedParameters`): [`ATR`](ATR.md)
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `DMIArgs` |
+| `__namedParameters` | `ATRArgs` |
 
 #### Returns
 
-[`DMI`](DMI.md)
+[`ATR`](ATR.md)
+
+---
 
 ### init
 
@@ -152,9 +139,7 @@
 
 [`C`, `V`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[init](Indicator.md#init)
+---
 
 ### initBar
 
@@ -180,9 +165,7 @@
 
 [`C`, `VB`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[initBar](Indicator.md#initbar)
+---
 
 ### minBars
 
@@ -192,7 +175,7 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `DMIArgs` |
+| `__namedParameters` | `ATRArgs` |
 
 #### Returns
 

@@ -1,29 +1,28 @@
-# Class: OBV
+# Class: TR
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`OBVArgs`\>
+- [`Indicator`](Indicator.md)<`TRArgs`\>
 
-  ↳ **`OBV`**
+  ↳ **`TR`**
 
 ## Constructors
 
 ### constructor
 
-• **new OBV**(`obv?`, `prevClose?`)
-
-#### Parameters
-
-| Name         | Type     |
-| :----------- | :------- |
-| `obv?`       | `number` |
-| `prevClose?` | `number` |
+• **new TR**()
 
 ## Methods
 
 ### next
 
-▸ **next**(): `number`
+▸ **next**(`value`): `number`
+
+#### Parameters
+
+| Name    | Type     |
+| :------ | :------- |
+| `value` | `number` |
 
 #### Returns
 
@@ -35,13 +34,15 @@
 
 #### Parameters
 
-| Name  | Type                                                                    |
-| :---- | :---------------------------------------------------------------------- |
-| `bar` | [`Close`](../interfaces/Close.md) & [`Volume`](../interfaces/Volume.md) |
+| Name  | Type                                                                                                |
+| :---- | :-------------------------------------------------------------------------------------------------- |
+| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
 
 #### Returns
 
 `number`
+
+___
 
 ### reset
 
@@ -51,13 +52,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`OBVArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`TRArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`OBVArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`TRArgs`\>
+
+___
 
 ### toString
 
@@ -67,6 +72,8 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(): `string`
@@ -75,19 +82,23 @@
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`OBV`](OBV.md)
+▸ `Static` **from**(`__namedParameters`): [`TR`](TR.md)
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `OBVArgs` |
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `TRArgs` |
 
 #### Returns
 
-[`OBV`](OBV.md)
+[`TR`](TR.md)
+
+___
 
 ### init
 
@@ -116,6 +127,8 @@
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
 
+___
+
 ### initBar
 
 ▸ `Static` **initBar**<`C`, `P`, `V`, `VB`\>(`props`, `bars`): [`C`, `VB`]
@@ -143,6 +156,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
+
+___
 
 ### minBars
 

@@ -1,24 +1,24 @@
-# Class: RSI
+# Class: SMA
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`RSIArgs`\>
+- [`Indicator`](Indicator.md)<`SMAArgs`\>
 
-  ↳ **`RSI`**
+  ↳ **`SMA`**
+
+https://www.investopedia.com/terms/s/sma.asp
 
 ## Constructors
 
 ### constructor
 
-• **new RSI**(`period`, `index?`, `window?`)
+• **new SMA**(`period`)
 
 #### Parameters
 
-| Name      | Type                             |
-| :-------- | :------------------------------- |
-| `period`  | `number`                         |
-| `index?`  | `number`                         |
-| `window?` | [`Window`](Window.md)<`number`\> |
+| Name     | Type     |
+| :------- | :------- |
+| `period` | `number` |
 
 ## Methods
 
@@ -36,6 +36,8 @@
 
 `number`
 
+___
+
 ### nextBar
 
 ▸ **nextBar**(`bar`): `number`
@@ -50,6 +52,8 @@
 
 `number`
 
+___
+
 ### reset
 
 ▸ **reset**(): `void`
@@ -58,13 +62,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`RSIArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`SMAArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`RSIArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`SMAArgs`\>
+
+___
 
 ### toString
 
@@ -74,6 +82,8 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`, `value?`): `string`
@@ -82,26 +92,30 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `RSIArgs` |
+| `__namedParameters` | `SMAArgs` |
 | `value?`            | `string`  |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`RSI`](RSI.md)
+▸ `Static` **from**(`__namedParameters`): [`SMA`](SMA.md)
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `RSIArgs` |
+| `__namedParameters` | `SMAArgs` |
 
 #### Returns
 
-[`RSI`](RSI.md)
+[`SMA`](SMA.md)
+
+___
 
 ### init
 
@@ -129,6 +143,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -158,6 +174,8 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
@@ -166,7 +184,7 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `RSIArgs` |
+| `__namedParameters` | `SMAArgs` |
 
 #### Returns
 

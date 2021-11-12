@@ -1,28 +1,36 @@
-# Class: SD
+# Class: MIN
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`SDArgs`\>
+- [`Indicator`](Indicator.md)<`MINArgs`\>
 
-  ↳ **`SD`**
+  ↳ **`MIN`**
 
 ## Constructors
 
 ### constructor
 
-• **new SD**(`period?`, `count?`, `m?`, `m2?`, `window?`)
+• **new MIN**(`period?`)
 
 #### Parameters
 
-| Name      | Type                             |
-| :-------- | :------------------------------- |
-| `period?` | `number`                         |
-| `count?`  | `number`                         |
-| `m?`      | `number`                         |
-| `m2?`     | `number`                         |
-| `window?` | [`Window`](Window.md)<`number`\> |
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
 
 ## Methods
+
+___
+
+### findMinIdx
+
+▸ **findMinIdx**(): `number`
+
+#### Returns
+
+`number`
+
+___
 
 ### next
 
@@ -38,19 +46,23 @@
 
 `number`
 
+___
+
 ### nextBar
 
 ▸ **nextBar**(`bar`): `number`
 
 #### Parameters
 
-| Name  | Type                              |
-| :---- | :-------------------------------- |
-| `bar` | [`Close`](../interfaces/Close.md) |
+| Name  | Type                          |
+| :---- | :---------------------------- |
+| `bar` | [`Low`](../interfaces/Low.md) |
 
 #### Returns
 
 `number`
+
+___
 
 ### reset
 
@@ -60,13 +72,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`SDArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MINArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`SDArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`MINArgs`\>
+
+___
 
 ### toString
 
@@ -76,34 +92,40 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`, `value?`): `string`
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `SDArgs` |
-| `value?`            | `string` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `MINArgs` |
+| `value?`            | `string`  |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`SD`](SD.md)
+▸ `Static` **from**(`__namedParameters`): [`MIN`](MIN.md)
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `SDArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `MINArgs` |
 
 #### Returns
 
-[`SD`](SD.md)
+[`MIN`](MIN.md)
+
+___
 
 ### init
 
@@ -131,6 +153,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -160,15 +184,17 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `SDArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `MINArgs` |
 
 #### Returns
 

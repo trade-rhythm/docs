@@ -1,40 +1,68 @@
-# Class: ER
+# Class: DMI
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`ERArgs`\>
+- [`Indicator`](Indicator.md)<`DMIArgs`\>
 
-  ↳ **`ER`**
+  ↳ **`DMI`**
+
+https://www.investopedia.com/terms/d/dmi.asp
 
 ## Constructors
 
 ### constructor
 
-• **new ER**(`period?`, `count?`, `window?`)
+• **new DMI**(`period?`)
 
 #### Parameters
 
-| Name      | Type                             |
-| :-------- | :------------------------------- |
-| `period?` | `number`                         |
-| `count?`  | `number`                         |
-| `window?` | [`Window`](Window.md)<`number`\> |
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
 
 ## Methods
 
-### next
+### display
 
-▸ **next**(`value`): `number`
+▸ **display**(`value`): `string`
 
 #### Parameters
 
 | Name    | Type     |
 | :------ | :------- |
-| `value` | `number` |
+| `value` | `string` |
+
+#### Returns
+
+`string`
+
+___
+
+### getDirection
+
+▸ **getDirection**(`bar`): [`number`, `number`]
+
+#### Parameters
+
+| Name  | Type                                                                                                |
+| :---- | :-------------------------------------------------------------------------------------------------- |
+| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
+
+#### Returns
+
+[`number`, `number`]
+
+___
+
+### next
+
+▸ **next**(): `number`
 
 #### Returns
 
 `number`
+
+___
 
 ### nextBar
 
@@ -42,13 +70,15 @@
 
 #### Parameters
 
-| Name  | Type                              |
-| :---- | :-------------------------------- |
-| `bar` | [`Close`](../interfaces/Close.md) |
+| Name  | Type                                                                                                |
+| :---- | :-------------------------------------------------------------------------------------------------- |
+| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
 
 #### Returns
 
 `number`
+
+___
 
 ### reset
 
@@ -58,13 +88,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`ERArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`DMIArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`ERArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`DMIArgs`\>
+
+___
 
 ### toString
 
@@ -74,34 +108,39 @@
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(`__namedParameters`, `value?`): `string`
+▸ `Static` **display**(`__namedParameters`): `string`
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `ERArgs` |
-| `value?`            | `string` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `DMIArgs` |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`ER`](ER.md)
+▸ `Static` **from**(`__namedParameters`): [`DMI`](DMI.md)
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `ERArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `DMIArgs` |
 
 #### Returns
 
-[`ER`](ER.md)
+[`DMI`](DMI.md)
+
+___
 
 ### init
 
@@ -129,6 +168,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -158,15 +199,17 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `ERArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `DMIArgs` |
 
 #### Returns
 

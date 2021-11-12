@@ -1,54 +1,46 @@
-# Class: BB
+# Class: OBV
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`BBArgs`, `Band`\>
+- [`Indicator`](Indicator.md)<`OBVArgs`\>
 
-  ↳ **`BB`**
+  ↳ **`OBV`**
+
+https://www.investopedia.com/terms/o/onbalancevolume.asp
 
 ## Constructors
 
 ### constructor
 
-• **new BB**(`period?`, `multiplier?`, `sd?`)
-
-#### Parameters
-
-| Name          | Type          |
-| :------------ | :------------ |
-| `period?`     | `number`      |
-| `multiplier?` | `number`      |
-| `sd?`         | [`SD`](SD.md) |
+• **new OBV**()
 
 ## Methods
 
 ### next
 
-▸ **next**(`value`): `Band`
-
-#### Parameters
-
-| Name    | Type     |
-| :------ | :------- |
-| `value` | `number` |
+▸ **next**(): `number`
 
 #### Returns
 
-`Band`
+`number`
+
+___
 
 ### nextBar
 
-▸ **nextBar**(`bar`): `Band`
+▸ **nextBar**(`bar`): `number`
 
 #### Parameters
 
-| Name  | Type                              |
-| :---- | :-------------------------------- |
-| `bar` | [`Close`](../interfaces/Close.md) |
+| Name  | Type                                                                    |
+| :---- | :---------------------------------------------------------------------- |
+| `bar` | [`Close`](../interfaces/Close.md) & [`Volume`](../interfaces/Volume.md) |
 
 #### Returns
 
-`Band`
+`number`
+
+___
 
 ### reset
 
@@ -58,13 +50,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`BBArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`OBVArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`BBArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`OBVArgs`\>
+
+___
 
 ### toString
 
@@ -74,34 +70,33 @@
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(`__namedParameters`, `value?`): `string`
-
-#### Parameters
-
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `BBArgs` |
-| `value?`            | `string` |
+▸ `Static` **display**(): `string`
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`BB`](BB.md)
+▸ `Static` **from**(`__namedParameters`): [`OBV`](OBV.md)
 
 #### Parameters
 
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `BBArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `OBVArgs` |
 
 #### Returns
 
-[`BB`](BB.md)
+[`OBV`](OBV.md)
+
+___
 
 ### init
 
@@ -129,6 +124,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -158,15 +155,11 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
-▸ `Static` **minBars**(`__namedParameters`): `number`
-
-#### Parameters
-
-| Name                | Type     |
-| :------------------ | :------- |
-| `__namedParameters` | `BBArgs` |
+▸ `Static` **minBars**(): `number`
 
 #### Returns
 

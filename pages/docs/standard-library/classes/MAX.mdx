@@ -1,31 +1,28 @@
-# Class: MIN
+# Class: MAX
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`MINArgs`\>
+- [`Indicator`](Indicator.md)<`MAXArgs`\>
 
-  ↳ **`MIN`**
+  ↳ **`MAX`**
 
 ## Constructors
 
 ### constructor
 
-• **new MIN**(`period?`, `minIdx?`, `curIdx?`, `queue?`)
+• **new MAX**(`period?`)
 
 #### Parameters
 
 | Name      | Type     |
 | :-------- | :------- |
 | `period?` | `number` |
-| `minIdx?` | `number` |
-| `curIdx?` | `number` |
-| `queue?`  | `any`[]  |
 
 ## Methods
 
-### findMinIdx
+### findMaxIdx
 
-▸ **findMinIdx**(): `number`
+▸ **findMaxIdx**(): `number`
 
 #### Returns
 
@@ -45,19 +42,23 @@
 
 `number`
 
+___
+
 ### nextBar
 
 ▸ **nextBar**(`bar`): `number`
 
 #### Parameters
 
-| Name  | Type                          |
-| :---- | :---------------------------- |
-| `bar` | [`Low`](../interfaces/Low.md) |
+| Name  | Type                            |
+| :---- | :------------------------------ |
+| `bar` | [`High`](../interfaces/High.md) |
 
 #### Returns
 
 `number`
+
+___
 
 ### reset
 
@@ -67,13 +68,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MINArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MAXArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`MINArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`MAXArgs`\>
+
+___
 
 ### toString
 
@@ -83,6 +88,8 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`, `value?`): `string`
@@ -91,26 +98,30 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `MINArgs` |
+| `__namedParameters` | `MAXArgs` |
 | `value?`            | `string`  |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`MIN`](MIN.md)
+▸ `Static` **from**(`__namedParameters`): [`MAX`](MAX.md)
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `MINArgs` |
+| `__namedParameters` | `MAXArgs` |
 
 #### Returns
 
-[`MIN`](MIN.md)
+[`MAX`](MAX.md)
+
+___
 
 ### init
 
@@ -138,6 +149,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -167,6 +180,8 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
@@ -175,7 +190,7 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `MINArgs` |
+| `__namedParameters` | `MAXArgs` |
 
 #### Returns
 

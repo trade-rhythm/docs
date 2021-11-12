@@ -1,31 +1,32 @@
-# Class: MAD
+# Class: PPO
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`MADArgs`\>
+- [`Indicator`](Indicator.md)<`PPOArgs`, `PPOOut`\>
 
-  ↳ **`MAD`**
+  ↳ **`PPO`**
+
+https://www.investopedia.com/terms/p/ppo.asp
 
 ## Constructors
 
 ### constructor
 
-• **new MAD**(`period?`, `sum?`, `count?`, `window?`)
+• **new PPO**(`fast?`, `slow?`, `signal?`)
 
 #### Parameters
 
-| Name      | Type                             |
-| :-------- | :------------------------------- |
-| `period?` | `number`                         |
-| `sum?`    | `number`                         |
-| `count?`  | `number`                         |
-| `window?` | [`Window`](Window.md)<`number`\> |
+| Name      | Type                        |
+| :-------- | :-------------------------- |
+| `fast?`   | `number` \| [`EMA`](EMA.md) |
+| `slow?`   | `number` \| [`EMA`](EMA.md) |
+| `signal?` | `number` \| [`EMA`](EMA.md) |
 
 ## Methods
 
 ### next
 
-▸ **next**(`value`): `number`
+▸ **next**(`value`): `PPOOut`
 
 #### Parameters
 
@@ -35,11 +36,13 @@
 
 #### Returns
 
-`number`
+`PPOOut`
+
+___
 
 ### nextBar
 
-▸ **nextBar**(`bar`): `number`
+▸ **nextBar**(`bar`): `PPOOut`
 
 #### Parameters
 
@@ -49,7 +52,9 @@
 
 #### Returns
 
-`number`
+`PPOOut`
+
+___
 
 ### reset
 
@@ -59,13 +64,25 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`MADArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`PPOArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`MADArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`PPOArgs`\>
+
+#### Overrides
+
+[Indicator](Indicator.md).[toJSON](Indicator.md#tojson)
+
+#### Defined in
+
+node_modules/@trade-rhythm/technical-indicators/dist/PPO/index.d.ts:22
+
+___
 
 ### toString
 
@@ -75,6 +92,8 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`, `value?`): `string`
@@ -83,26 +102,30 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `MADArgs` |
+| `__namedParameters` | `PPOArgs` |
 | `value?`            | `string`  |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`MAD`](MAD.md)
+▸ `Static` **from**(`__namedParameters`): [`PPO`](PPO.md)
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `MADArgs` |
+| `__namedParameters` | `PPOArgs` |
 
 #### Returns
 
-[`MAD`](MAD.md)
+[`PPO`](PPO.md)
+
+___
 
 ### init
 
@@ -130,6 +153,8 @@
 #### Inherited from
 
 [Indicator](Indicator.md).[init](Indicator.md#init)
+
+___
 
 ### initBar
 
@@ -159,6 +184,8 @@
 
 [Indicator](Indicator.md).[initBar](Indicator.md#initbar)
 
+___
+
 ### minBars
 
 ▸ `Static` **minBars**(`__namedParameters`): `number`
@@ -167,7 +194,7 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `MADArgs` |
+| `__namedParameters` | `PPOArgs` |
 
 #### Returns
 

@@ -1,27 +1,25 @@
-# Class: ADX
+# Class: AO
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`ADXArgs`\>
+- [`Indicator`](Indicator.md)<`AOArgs`\>
 
-  ↳ **`ADX`**
+  ↳ **`AO`**
+
+https://www.moneycontrol.com/news/business/markets/technical-classroom-how-to-use-awesome-oscillator-in-trading-strategy-4201371.html
 
 ## Constructors
 
 ### constructor
 
-• **new ADX**(`period?`, `dmi?`, `sum?`, `window?`, `prev?`, `count?`)
+• **new AO**(`fast?`, `slow?`)
 
 #### Parameters
 
-| Name      | Type                             |
-| :-------- | :------------------------------- |
-| `period?` | `number`                         |
-| `dmi?`    | [`DMI`](DMI.md)                  |
-| `sum?`    | `number`                         |
-| `window?` | [`Window`](Window.md)<`number`\> |
-| `prev?`   | `number`                         |
-| `count?`  | `number`                         |
+| Name    | Type                        |
+| :------ | :-------------------------- |
+| `fast?` | `number` \| [`SMA`](SMA.md) |
+| `slow?` | `number` \| [`SMA`](SMA.md) |
 
 ## Methods
 
@@ -32,6 +30,7 @@
 #### Returns
 
 `number`
+___
 
 ### nextBar
 
@@ -39,13 +38,14 @@
 
 #### Parameters
 
-| Name  | Type                                                                                                |
-| :---- | :-------------------------------------------------------------------------------------------------- |
-| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) & [`Close`](../interfaces/Close.md) |
+| Name  | Type                                                            |
+| :---- | :-------------------------------------------------------------- |
+| `bar` | [`High`](../interfaces/High.md) & [`Low`](../interfaces/Low.md) |
 
 #### Returns
 
 `number`
+___
 
 ### reset
 
@@ -55,13 +55,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`ADXArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`AOArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`ADXArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`AOArgs`\>
+
+___
 
 ### toString
 
@@ -71,33 +75,33 @@
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(`__namedParameters`): `string`
-
-#### Parameters
-
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `ADXArgs` |
+▸ `Static` **display**(): `string`
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`ADX`](ADX.md)
+▸ `Static` **from**(`__namedParameters`): [`AO`](AO.md)
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `ADXArgs` |
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `AOArgs` |
 
 #### Returns
 
-[`ADX`](ADX.md)
+[`AO`](AO.md)
+
+___
 
 ### init
 
@@ -122,9 +126,7 @@
 
 [`C`, `V`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[init](Indicator.md#init)
+___
 
 ### initBar
 
@@ -150,9 +152,7 @@
 
 [`C`, `VB`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[initBar](Indicator.md#initbar)
+___
 
 ### minBars
 
@@ -160,9 +160,9 @@
 
 #### Parameters
 
-| Name                | Type      |
-| :------------------ | :-------- |
-| `__namedParameters` | `ADXArgs` |
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `AOArgs` |
 
 #### Returns
 

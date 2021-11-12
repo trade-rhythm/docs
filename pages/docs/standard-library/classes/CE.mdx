@@ -1,28 +1,31 @@
-# Class: TR
+# Class: CE
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`TRArgs`\>
+- [`Indicator`](Indicator.md)<`CEArgs`, `Chandelier`\>
 
-  ↳ **`TR`**
+  ↳ **`CE`**
+
+https://school.stockcharts.com/doku.php?id=technical_indicators:chandelier_exit
 
 ## Constructors
 
 ### constructor
 
-• **new TR**(`prev?`)
+• **new CE**(`period?`, `multiplier?`)
 
 #### Parameters
 
-| Name    | Type     |
-| :------ | :------- |
-| `prev?` | `number` |
+| Name          | Type     |
+| :------------ | :------- |
+| `period?`     | `number` |
+| `multiplier?` | `number` |
 
 ## Methods
 
 ### next
 
-▸ **next**(`value`): `number`
+▸ **next**(`value`): `Chandelier`
 
 #### Parameters
 
@@ -32,11 +35,13 @@
 
 #### Returns
 
-`number`
+`Chandelier`
+
+___
 
 ### nextBar
 
-▸ **nextBar**(`bar`): `number`
+▸ **nextBar**(`bar`): `Chandelier`
 
 #### Parameters
 
@@ -46,7 +51,9 @@
 
 #### Returns
 
-`number`
+`Chandelier`
+
+___
 
 ### reset
 
@@ -56,13 +63,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`TRArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`CEArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`TRArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`CEArgs`\>
+
+___
 
 ### toString
 
@@ -72,27 +83,39 @@
 
 `string`
 
+___
+
 ### display
 
-▸ `Static` **display**(): `string`
-
-#### Returns
-
-`string`
-
-### from
-
-▸ `Static` **from**(`__namedParameters`): [`TR`](TR.md)
+▸ `Static` **display**(`__namedParameters`): `string`
 
 #### Parameters
 
 | Name                | Type     |
 | :------------------ | :------- |
-| `__namedParameters` | `TRArgs` |
+| `__namedParameters` | `CEArgs` |
 
 #### Returns
 
-[`TR`](TR.md)
+`string`
+
+___
+
+### from
+
+▸ `Static` **from**(`__namedParameters`): [`CE`](CE.md)
+
+#### Parameters
+
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `CEArgs` |
+
+#### Returns
+
+[`CE`](CE.md)
+
+___
 
 ### init
 
@@ -117,9 +140,7 @@
 
 [`C`, `V`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[init](Indicator.md#init)
+___
 
 ### initBar
 
@@ -145,13 +166,17 @@
 
 [`C`, `VB`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[initBar](Indicator.md#initbar)
+___
 
 ### minBars
 
-▸ `Static` **minBars**(): `number`
+▸ `Static` **minBars**(`__namedParameters`): `number`
+
+#### Parameters
+
+| Name                | Type     |
+| :------------------ | :------- |
+| `__namedParameters` | `CEArgs` |
 
 #### Returns
 

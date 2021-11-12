@@ -2,11 +2,11 @@
 name: Intro
 ---
 
-import { TableOfContents, } from 'dokz'
+import { TableOfContents } from "dokz";
 
 # Standard Library
 
-We provide a number of technical indicators that you may incorporate into your strategies.
+We provide a number of technical indicators that you may incorporate into your strategies as well as a unified set of methods that will help you access market data and broker data.
 
 > Our technical indicators are [open soure](https://github.com/trade-rhythm/technical-indicators) and you're welcome to view and contribute to the growing list of items.
 
@@ -234,28 +234,100 @@ We provide a number of technical indicators that you may incorporate into your s
 
 `unknown`
 
-## Example Usage
+## Example Strategy
 
 ```js
-import { EMA, Cross, parse } from "https://traderhythm.io/std/v1/mod.js";
+import {
+    storage,
+    EMA,
+    Cross,
+    dataProvider,
+    brokerProvider,
+    OrderType,
+    Side,
+    OrderClass,
+    TimeInForce,
+} from "https://traderhythm.io/std/v1/mod.js";
 
-// init some indicators
-const ema = new EMA(9);
-const cross = new Cross();
+// called once when implementation is created
+addEventListener("init", async () => {
+    // get historical data that we can send to our indicators to initialize them.
+    const bars = await dataProvider.getBarsBack("1Hour", 100);
 
-// do something with them
-function handleNewData(bar) {
-    j;
-    const value = ema.next(bar.close); // or ema.nextBar(bar);
-    if (cross.over(value, bar.close)) {
-        // Do something!
+    // setup our indicators
+    const fastMA = EMA.initBar({ period: 50 }, bars);
+    const slowMA = EMA.initBar({ period: 100 }, bars);
+    const crossover = new Cross();
+    const crossunder = new Cross();
+
+    // serialize our indicators so that they can be retieved on the next "tick" events
+    storage.merge({
+        fastMA,
+        slowMA,
+        crossover,
+        crossunder,
+    });
+});
+
+// called on every tick
+addEventListener("tick", async () => {
+    // get our indicators
+    const [fastMA, slowMA, crossover, crossunder] = storage.multiGet([
+        "fastMA",
+        "slowMA",
+        "crossover",
+        "crossunder",
+    ]);
+
+    const [trade, positions] = await Promise.all([
+        dataProvider.getLatestTrade(),
+        brokerProvider.getPositions(),
+    ]);
+    const { p: last } = trade;
+
+    // update data
+    const fastVal = fastMA.next(last);
+    const slowVal = slowMA.next(last);
+
+    // crosses
+    const didCrossOver = crossover.over(last, fastVal);
+    const didCrossUnder = crossunder.under(last, fastVal);
+
+    // short circuit (we don't want to enter again if we already have an open position
+    if (positions.length) return;
+
+    const quantity = Math.floor(10000 / last);
+    // check conditon
+    if (didCrossOver && fastVal > slowVal) {
+        // should we enter long?
+        await brokerProvider.order({
+            qty: quantity,
+            orderClass: OrderClass.Bracket,
+            side: Side.Buy,
+            type: OrderType.Market,
+            timeInForce: TimeInForce.DAY,
+            takeProfit: { limitPrice: last * 1.05 },
+            stopLoss: { stopPrice: last * 0.98 },
+        });
+    } else if (didCrossUnder && fastVal < slowVal) {
+        // should we enter short?
+        await brokerProvider.order({
+            qty: quantity,
+            orderClass: OrderClass.Bracket,
+            side: Side.Buy,
+            type: OrderType.Market,
+            timeInForce: TimeInForce.DAY,
+            takeProfit: { limitPrice: last * 0.95 },
+            stopLoss: { stopPrice: last * 1.02 },
+        });
     }
-}
 
-// serialize indicators to JSON
-const state = { ema, cross };
-const json = JSON.stringify(state);
-
-// deserialize
-const newState = parse(json);
+    // serialize our indicators so that they can be retieved on the next "tick" events
+    storage.merge({
+        fastMA,
+        slowMA,
+        crossover,
+        crossunder,
+    });
+});
 ```

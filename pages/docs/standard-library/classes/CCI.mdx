@@ -1,23 +1,24 @@
-# Class: SLOW_STOCH
+# Class: CCI
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`SLOW_STOCHArgs`\>
+- [`Indicator`](Indicator.md)<`CCIArgs`\>
 
-  ↳ **`SLOW_STOCH`**
+  ↳ **`CCI`**
+
+https://www.investopedia.com/terms/c/commoditychannelindex.asp
 
 ## Constructors
 
 ### constructor
 
-• **new SLOW_STOCH**(`fast?`, `ema?`)
+• **new CCI**(`period?`)
 
 #### Parameters
 
-| Name    | Type                                      |
-| :------ | :---------------------------------------- |
-| `fast?` | `number` \| [`FAST_STOCH`](FAST_STOCH.md) |
-| `ema?`  | `number` \| [`EMA`](EMA.md)               |
+| Name      | Type     |
+| :-------- | :------- |
+| `period?` | `number` |
 
 ## Methods
 
@@ -35,6 +36,8 @@
 
 `number`
 
+___
+
 ### nextBar
 
 ▸ **nextBar**(`bar`): `number`
@@ -49,6 +52,8 @@
 
 `number`
 
+___
+
 ### reset
 
 ▸ **reset**(): `void`
@@ -57,13 +62,17 @@
 
 `void`
 
+___
+
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`SLOW_STOCHArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`CCIArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`SLOW_STOCHArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`CCIArgs`\>
+
+___
 
 ### toString
 
@@ -73,33 +82,39 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`): `string`
 
 #### Parameters
 
-| Name                | Type             |
-| :------------------ | :--------------- |
-| `__namedParameters` | `SLOW_STOCHArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `CCIArgs` |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`SLOW_STOCH`](SLOW_STOCH.md)
+▸ `Static` **from**(`__namedParameters`): [`CCI`](CCI.md)
 
 #### Parameters
 
-| Name                | Type             |
-| :------------------ | :--------------- |
-| `__namedParameters` | `SLOW_STOCHArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `CCIArgs` |
 
 #### Returns
 
-[`SLOW_STOCH`](SLOW_STOCH.md)
+[`CCI`](CCI.md)
+
+___
 
 ### init
 
@@ -124,9 +139,7 @@
 
 [`C`, `V`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[init](Indicator.md#init)
+___
 
 ### initBar
 
@@ -152,9 +165,7 @@
 
 [`C`, `VB`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[initBar](Indicator.md#initbar)
+___
 
 ### minBars
 
@@ -162,9 +173,9 @@
 
 #### Parameters
 
-| Name                | Type             |
-| :------------------ | :--------------- |
-| `__namedParameters` | `SLOW_STOCHArgs` |
+| Name                | Type      |
+| :------------------ | :-------- |
+| `__namedParameters` | `CCIArgs` |
 
 #### Returns
 

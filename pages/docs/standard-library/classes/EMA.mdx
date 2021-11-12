@@ -1,24 +1,24 @@
-# Class: ROC
+# Class: EMA
 
 ## Hierarchy
 
-- [`Indicator`](Indicator.md)<`ROCArgs`\>
+- [`Indicator`](Indicator.md)<`EMAArgs`\>
 
-  ↳ **`ROC`**
+  ↳ **`EMA`**
+
+https://www.investopedia.com/terms/e/ema.asp
 
 ## Constructors
 
 ### constructor
 
-• **new ROC**(`period?`, `count?`, `window?`)
+• **new EMA**(`period`)
 
 #### Parameters
 
-| Name      | Type                             |
-| :-------- | :------------------------------- |
-| `period?` | `number`                         |
-| `count?`  | `number`                         |
-| `window?` | [`Window`](Window.md)<`number`\> |
+| Name     | Type     |
+| :------- | :------- |
+| `period` | `number` |
 
 ## Methods
 
@@ -36,6 +36,8 @@
 
 `number`
 
+___
+
 ### nextBar
 
 ▸ **nextBar**(`bar`): `number`
@@ -50,6 +52,8 @@
 
 `number`
 
+___
+
 ### reset
 
 ▸ **reset**(): `void`
@@ -60,11 +64,13 @@
 
 ### toJSON
 
-▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`ROCArgs`\>
+▸ **toJSON**(): [`JSONDef`](../modules.md#jsondef)<`EMAArgs`\>
 
 #### Returns
 
-[`JSONDef`](../modules.md#jsondef)<`ROCArgs`\>
+[`JSONDef`](../modules.md#jsondef)<`EMAArgs`\>
+
+___
 
 ### toString
 
@@ -74,6 +80,8 @@
 
 `string`
 
+___
+
 ### display
 
 ▸ `Static` **display**(`__namedParameters`, `value?`): `string`
@@ -82,26 +90,30 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `ROCArgs` |
+| `__namedParameters` | `EMAArgs` |
 | `value?`            | `string`  |
 
 #### Returns
 
 `string`
 
+___
+
 ### from
 
-▸ `Static` **from**(`__namedParameters`): [`ROC`](ROC.md)
+▸ `Static` **from**(`__namedParameters`): [`EMA`](EMA.md)
 
 #### Parameters
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `ROCArgs` |
+| `__namedParameters` | `EMAArgs` |
 
 #### Returns
 
-[`ROC`](ROC.md)
+[`EMA`](EMA.md)
+
+___
 
 ### init
 
@@ -126,9 +138,7 @@
 
 [`C`, `V`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[init](Indicator.md#init)
+___
 
 ### initBar
 
@@ -154,9 +164,7 @@
 
 [`C`, `VB`]
 
-#### Inherited from
-
-[Indicator](Indicator.md).[initBar](Indicator.md#initbar)
+___
 
 ### minBars
 
@@ -166,7 +174,7 @@
 
 | Name                | Type      |
 | :------------------ | :-------- |
-| `__namedParameters` | `ROCArgs` |
+| `__namedParameters` | `EMAArgs` |
 
 #### Returns
 
